@@ -1,0 +1,33 @@
+<!doctype html>
+<!--
+NOTE:
+ファイル名は「index.html」以外にすること。GASのコードがindex.jsとしてビルドされる関係で`npm run push`時に「同じベース名のファイルが2つある」ことが原因の下記エラーが発生するため
+A file with this name already exists in the current project: index
+-->
+<html class="theme-light">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <?!= include('styles'); ?>
+  </head>
+
+  <body>
+    <form id="form">
+      <div class="field">
+        <div class="control">
+          <input class="input" name="inputName" />
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button type="submit" class="button is-primary">実行</button>
+        </div>
+      </div>
+    </form>
+    <?!= include('script'); ?>
+  </body>
+</html>
