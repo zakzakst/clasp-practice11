@@ -1,13 +1,25 @@
 <script>
-  // 実行
   const form = document.getElementById("form");
+  const submitButton = document.getElementById("submitButton");
+  const result = document.getElementById("result");
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const formData = new FormData(form);
-    // google.script.run
-    //   .withSuccessHandler(() => {
-    //     google.script.host.close();
-    //   })
-    //   .sampleScript(formData.get("inputName"));
+    const folderId = form.elements.folderId.value.trim();
+    const spreadsheetId = form.elements.spreadsheetId.value.trim();
+
+    submitButton.disabled = true;
+    result.textContent = "画像を挿入しています...";
+
+    google.script.run
+      .withSuccessHandler((count) => {
+        result.textContent = `${count}件の画像を挿入しました。`;
+        submitButton.disabled = false;
+      })
+      .withFailureHandler((error) => {
+        result.textContent = error.message || "画像の挿入に失敗しました。";
+        submitButton.disabled = false;
+      })
+      .insertDriveImagesToSpreadsheet(folderId, spreadsheetId);
   });
 </script>

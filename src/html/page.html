@@ -1,0 +1,56 @@
+<!doctype html>
+<html class="theme-light">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+    <?!= include('styles'); ?>
+  </head>
+
+  <body>
+    <main class="section">
+      <div class="container">
+        <h1 class="title">Drive画像を挿入</h1>
+        <form id="form">
+          <div class="field">
+            <label class="label" for="folderId">画像フォルダID</label>
+            <div class="control">
+              <input
+                class="input"
+                id="folderId"
+                name="folderId"
+                type="text"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="spreadsheetId">スプレッドシートID</label>
+            <div class="control">
+              <input
+                class="input"
+                id="spreadsheetId"
+                name="spreadsheetId"
+                type="text"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <button id="submitButton" type="submit" class="button is-primary">
+                画像を挿入
+              </button>
+            </div>
+          </div>
+          <p id="result" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </main>
+    <?!= include('script'); ?>
+  </body>
+</html>
