@@ -30,6 +30,7 @@ function insertDriveImagesToSpreadsheet(
   const sheet = SpreadsheetApp.openById(spreadsheetId).getSheets()[0];
   let nextRow = 1;
 
+  // https://github.com/zakzakst/clasp-practice4/blob/main/src/insertImagesFromDrive.ts
   images.forEach((imageFile) => {
     const image = sheet.insertImage(
       getDriveImageBlob_(imageFile.id),
